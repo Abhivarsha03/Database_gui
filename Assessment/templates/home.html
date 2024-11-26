@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database</title>
+</head>
+<body>
+    
+
+    <!-- <h2>Add a New Course</h2>
+    <form action="/create" method="POST">
+        <input type="text"name="name" placeholder="name">
+        <input type="text"name="fees" placeholder="fees">
+        <input type="text"name="duration" placeholder="duration">
+        <input type="submit" value="Create">
+    </form> -->
+
+    <!-- <h2>Update or Delete course details</h2>
+    <table>
+        <thead style="display: block;">
+            <tr>
+                <th>ID</th>
+                <th width="35%">Course Name</th>
+                <th width="35%">Fees</th>
+                <th width="35%">Duration</th>
+                <th  width="15%">Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                <td>
+                    <form action="/update" method="POST">
+                    <label>{{ row[0] }}</label>
+                    <input type="hidden" name="id" value="{{ row[0] }}">
+                    <input type="text" name="name" value="{{ row[1] }}">
+                    <input type="text" name="fees" value="{{ row[2] }}">
+                    <input type="text" name="duration" value="{{ row[3] }}">
+                    <input type="submit" value="Update">
+                    </form>
+                </td>
+                <td>
+                    <form action="/delete" method="POST">
+                        <input type="hidden" name="id" value="{{ row[0] }}">
+                        <input type="submit" value="Delete">
+                    </form>
+                    
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table> -->
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Course Database GUI</title>
+    <!-- <link rel="stylesheet" href="styles.css"> -->
+    <style>
+        /* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: rgb(231, 94, 14);
+    color: hsl(0, 0%, 100%);
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+/* Header */
+.header {
+    background: #000;
+    color: #fff;
+    width: 100%;
+    padding: 20px 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 20px;
+    font-weight: bold;
+    color: #fff6f6;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.header nav form label {
+    color: #fff;
+    text-decoration: none;
+    margin: 0 10px;
+    font-size: 16px;
+}
+
+body {
+            background-color: orange;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: black;
+            color: white;
+            border: 2px solid white;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid white;
+        }
+        th {
+            background-color: darkorange;
+        }
+        button {
+            padding: 5px 10px;
+            color: white;
+            background-color: rgb(235, 0, 0);
+            border: none;
+            cursor: pointer;
+            cursor: pointer;
+            justify-content: space-between;
+            margin-top: 30px;
+        }
+        button:hover {
+            background-color: orange;
+        }
+</style>
+</head>
+<body>
+    <header class="header">
+        <div class="logo">My Course Database</div>
+        <nav>
+            <a href="/" style="color: #fff;
+            text-decoration: none;
+            margin: 0 10px;
+            font-size: 16px;">Home</a>
+        </nav>
+    </header>
+    <table >
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Couse Name</th>
+                <th>Fees</th>
+                <th>Duration (in hrs)</th>
+            </tr>
+        </thead>
+        <tbody text-align="center">
+            {% for row in data %}
+            <tr>
+                <td>{{ row[0] }}</td>
+                <td>{{ row[1] }}</td>
+                <td>{{ row[2] }}</td>
+                <td>{{ row[3] }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <form action="/create">
+        <button type="submit" href="/create" style="padding: 10px 100px; cursor: pointer;">Add New Courses</button>
+    </form>
+    <form action="/edit" method="GET" style="display:inline;">
+        <button type="submit" style="padding: 10px 143px; cursor: pointer;">Edit</button>
+    </form>
+    
+    
+</body>
+</html>

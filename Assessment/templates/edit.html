@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Courses</title>
+    <style>
+        body {
+            background-color: orange;
+            font-family: Arial, sans-serif;
+            text-align: center;
+        }
+        table {
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: black;
+            color: white;
+            border: 2px solid white;
+        }
+        th, td {
+            padding: 10px;
+            border: 1px solid white;
+        }
+        th {
+            background-color: darkorange;
+        }
+        button {
+            padding: 5px 10px;
+            color: white;
+            background-color: darkorange;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: orange;
+        }
+        a {
+            color: purple;
+            text-decoration: none;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <h1>Edit Courses</h1>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Course Name</th>
+                <th>Fees</th>
+                <th>Duration</th>
+                <th>Update</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for row in data %}
+            <tr>
+                <form action="/update" method="POST">
+                    <td>{{ row[0] }}</td>
+                    <td><input type="text" name="name" value="{{ row[1] }}" required></td>
+                    <td><input type="number" name="fees" value="{{ row[2] }}" required></td>
+                    <td><input type="number" name="duration" value="{{ row[3] }}" required></td>
+                    <td>
+                        <input type="hidden" name="id" value="{{ row[0] }}">
+                        <button type="submit">Update</button>
+                    </td>
+                </form>
+                <form action="/delete" method="POST" style="display:inline;">
+                    <td>
+                        <input type="hidden" name="id" value="{{ row[0] }}">
+                        <button type="submit" style="background-color: red;">Delete</button>
+                    </td>
+                </form>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <a href="/">Go Back</a>
+</body>
+</html>
