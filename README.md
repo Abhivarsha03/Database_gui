@@ -17,10 +17,12 @@ psql -U postgres
 pip install flask psychopg2 
 
 -Then add connection from postgre to flask and perform operation
--First run data.py then run app.py file using python file
+-First run data.py then run app.py file using python file,
 
 python data.py
-Check whether added course values is there or not
+
+Check whether added course values is there or not,
+
 python app.py
 
 front-end:html,css framework:flask db: postgreSQL
