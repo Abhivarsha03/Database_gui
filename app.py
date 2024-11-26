@@ -1,10 +1,29 @@
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
 from flask import Flask, render_template, request, redirect, url_for
 import psycopg2
+from db.data import create_table
 
 app = Flask(__name__)
 
+dbname = os.environ.get('DB_DATABASE')
+user = os.environ.get('DB_USERNAME')
+password = os.environ.get('DB_PASSWORD')
+host = os.environ.get('DB_HOST')
+port = os.environ.get('DB_PORT')
+
+try:
+    conn = psycopg2.connect(database= dbname, user= user,password= password,host= host,port= port)
+    cur = conn.cursor()
+    cur.execute("SELECT * FROM courses ORDER BY id")
+except Exception as e:
+    create_table()
+
 def db_conn():
-    conn = psycopg2.connect(database= "postgres", user= "postgres",password= "imabhildi03",host= 'localhost',port="5432")
+    conn = psycopg2.connect(database= dbname, user= user, password= password, host= host, port= port)
     return conn
 
 @app.route('/')
