@@ -1,28 +1,57 @@
-# Database_gui
-Simple_Database_Gui 
+# **Database GUI Project**
 
-Basically create simple database gui which performs CRUD operations
+## **Introduction**
 
-Install Dependencies: 
--Install postgreSQL from their official website 
--Set up the environmentals which is required.
+This project creates a simple database GUI that performs CRUD (Create, Read, Update, Delete) operations. The application allows users to interact with a database of courses, including adding, editing, and deleting courses.
 
--Check whether postgreSQL version installed in your pc or not by: 
-psql --version 
+### Live Web App - https://database-gui-ho63.onrender.com
 
--Create user and strong password while setup and check it by using: 
-psql -U postgres 
+## **Features**
 
--Also install flask dependencies using: 
-pip install flask psychopg2 
+- Create new courses
+- Read existing courses
+- Update existing courses
+- Delete existing courses
+- User-friendly GUI interface
 
--Then add connection from postgre to flask and perform operation
--First run data.py then run app.py file using python file,
+## **Technologies Used**
 
-python data.py
+- Front-end: HTML, CSS
+- Framework: Flask
+- Database: postgreSQL
 
-Check whether added course values is there or not,
+## **Installation**
 
-python app.py
+### Dependencies
 
-front-end:html,css framework:flask db: postgreSQL
+- Install postgreSQL from the official website
+- Install Flask dependencies using pip:
+
+```bash
+pip install -r requirements.txt
+```
+
+## **Running the Application**
+
+1. Run `app.py` to start the Flask application
+2. Open a web browser and navigate to `http://localhost:5000`
+
+## **Database Schema**
+
+The database schema consists of a single table, `courses`, with the following columns:
+
+- `id` (primary key)
+- `name`
+- `fees`
+- `duration`
+
+## **API Endpoints**
+
+- `/`: Home page
+- `/create`: Create new course
+- `/edit`: Edit existing course
+- `/delete`: Delete existing course
+
+## **License**
+
+This project is licensed under the open source MIT License.
